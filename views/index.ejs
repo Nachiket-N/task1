@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Task1</title>
+	</head>
+
+	<body>
+		<h1>Simple Form.</h1>
+
+		<form action="/submit_form" method="POST">
+			<input type="text" placeholder="name" name="name" />
+			<input type="text" placeholder="number" name="number" />
+			<button type="submit">Submit</button>
+		</form>
+		<% for(var i = 0; i < arr.length; i++) {%>
+		<li class="person">
+			<span><%= arr[i].name %></span>:
+			<span><%= arr[i].number %></span>
+		</li>
+		<% } %>
+	</body>
+</html>
