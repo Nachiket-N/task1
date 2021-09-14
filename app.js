@@ -6,12 +6,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 const MongoClient = require("mongodb").MongoClient;
+const PORT = process.env.PORT || 3000;
 const connectionString = process.env.CONNECTION_STRING;
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
 	.then((client) => {
 		console.log("Connected to DB");
 		const db = client.db("task1");
-		//console.log(db);
+		console.log(db);
 		const quotesCollection = db.collection("submissions");
 		//console.log(quotesCollection);
 		app.post("/submit_form", (req, res) => {
@@ -41,6 +42,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 	})
 	.catch((error) => console.error(error));
 
-app.listen(process.env.PORT, function () {
-	console.log("listening on,", process.env.PORT);
+app.listen(PORT, function () {
+	console.log("listening on,", PORT);
 });
